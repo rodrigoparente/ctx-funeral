@@ -1,7 +1,10 @@
-### Django ###
+### django ###
 *.log
 *.pot
 *.pyc
 __pycache__/
 images/
 db.sqlite3
+
+### code editor
+tox.ini
