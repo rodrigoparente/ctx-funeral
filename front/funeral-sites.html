@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ctx-funeral</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+						<li><a href="funeral-sites.html" class="active"><span class="icon fa-location-arrow"></span></a></li>
+						<li><a href="site-types.html"><span class="icon fa-fort-awesome"></span></a></li>
+						<li><a href="chronology.html"><span class="icon fa-hourglass-start"></span></a></li>
+						<li><a href="references.html"><span class="icon fa-book"></span></a></li>		
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>Sítios funerais</div>
+						</header>
+
+					<!-- Section -->
+						<section>
+							<form action="#" method="post">
+								<div class="inner">
+									<header>
+										<h1>Sítios funerais</h1>
+									</header>
+									<p>Algum textozinho sobre sítios funerais.</p>
+
+									<div id="browsing">
+										<div>
+											<input type="submit" value="Incluir"><br><br>
+										</div>
+										<div>
+											<table style="width:100%">
+											  <tr>
+												<th>Nome do sítio</th>
+												<th>Tipo / Número de enterramentos</th>
+												<th>Tipo de Inumação</th>
+												<th>Distrito </th>
+												<th>Município</th>
+												<th>Datação</th>
+												<th>Material Datado</th>
+												<th>Tipo de sítio</th>
+												<th>Cronologia</th>
+												<th>Referência</th>											
+											  </tr>
+											  <tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											  </tr>
+											</table>
+										</div>
+									</div>
+									
+									<div id="inserting">
+										<div>
+											<div>
+												<label for="name">Nome do sítio</label>
+												<input name="name" id="name" type="text" placeholder="Nome">
+											</div>
+											
+											<div>
+												<label for="message">Tipo / Número de enterramentos</label>
+												<textarea name="message" id="message" rows="2" placeholder="Tipo / Número de enterramentos"></textarea>
+											</div>
+											
+											<div>
+												<label for="inumacao">Tipo de Inumação</label>
+												<select id="inumacao" name="distrito">
+													<option value="P">Primário</option>
+													<option value="S">Secundário</option>
+													<option value="PS">Primário e Secundário</option>
+													<option value="NM">Não Mencionado</option>
+												</select>
+											</div>
+											
+											<div>
+												<label for="distrito">Distrito</label>
+												<select id="distrito" name="distrito">
+													<option value="AC">Acre</option>
+													<option value="AL">Alagoas</option>
+													<option value="AP">Amapa</option>
+													<option value="AM">Amazonas</option>
+													<option value="BA">Bahia</option>
+													<option value="CE">Ceará</option>
+													<option value="DF">Distrito Federal</option>													
+													<option value="ES">Espirito Santo</option>
+													<option value="GO">Goiás</option>
+													<option value="MA">Maranhão</option>
+													<option value="MT">Mato Grosso</option>
+													<option value="MS">Mato Grosso do Sul</option>
+													<option value="MG">Minas Gerais</option>
+													<option value="PA">Pará</option>
+													<option value="PB">Paraíba</option>
+													<option value="PR">Paraná</option>
+													<option value="PE">Pernambuco</option>
+													<option value="PI">Piauí</option>
+													<option value="RJ">Rio de Janeiro</option>
+													<option value="RN">Rio Grande do Norte</option>
+													<option value="RS">Rio Grande do Sul</option>
+													<option value="RO">Rondônia</option>
+													<option value="RR">Roraima</option>
+													<option value="SC">Santa Catarina</option>
+													<option value="SP">São Paulo</option>
+													<option value="SE">Sergipe</option>
+													<option value="TO">Tocantins</option>
+												</select>										  
+											</div>
+
+											<div>
+												<label for="municipio">Município</label>
+												<input name="municipio" id="municipio" type="text" placeholder="Município">											  
+											</div>
+
+											<div>
+												<label for="datacao">Datação</label>
+												<textarea name="datacao" id="datacao" rows="2" placeholder="Datação"></textarea>
+											</div>
+											
+											<div>
+												<label for="materialDatado">Material datado</label>
+												<textarea name="materialDatado" id="materialDatado" rows="2" placeholder="Material datado"></textarea>
+											</div>
+											
+											<div>
+												<label for="tipoSitio">Tipo de sítio:</label>
+												<select id="tipoSitio" name="tipoSitio">
+													<option value="opt">Opções cadastradas no outro menu</option>
+												</select>												
+											</div>
+											
+											<div>
+												<label for="cronologia">Cronologia:</label>
+												<select id="cronologia" name="cronologia">
+													<option value="opt">Opções cadastradas no outro menu</option>
+												</select>												
+											</div>
+
+											<div>
+												<label for="referencias">Referências:</label>
+												<select id="referencias" name="referencias">
+													<option value="opt">Opções cadastradas no outro menu</option>
+												</select>												
+											</div>
+										</div>
+										<div>
+											<br><br>
+											<input type="submit" value="Salvar">
+											<input type="submit" value="Cancelar">
+										</div>
+									</div>
+								</div>
+							</form>
+						</section>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								ctx-funeral &copy;
+								<script>
+									var CurrentYear = new Date().getFullYear()
+									document.write(CurrentYear)
+								</script>
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
