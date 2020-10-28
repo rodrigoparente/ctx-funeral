@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 THIRD_PARTIES_APPS = [
     'django_extensions',
     'rest_framework',
+    'corsheaders',
     'django_js_reverse',
     'webpack_loader',
     'django_filters',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,20 +82,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ctx_funeral.wsgi.application'
 
+# Django Cors Headers
+# https://github.com/adamchainz/django-cors-headers#configuration
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Django Rest Framework
 
 REST_FRAMEWORK = {
     # https://www.django-rest-framework.org/api-guide/permissions/
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ],
+    'DEFAULT_PERMISSION_CLASSES': [],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
 
     # https://www.django-rest-framework.org/api-guide/filtering/
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.OrderingFilter',
         'rest_framework.filters.SearchFilter'
-    ]
+    ],
+
 }
 
 # Database
