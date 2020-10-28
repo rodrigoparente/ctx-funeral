@@ -16,7 +16,7 @@
 						<li><a href="funeral-sites.html"><span class="icon fa-location-arrow"></span></a></li>
 						<li><a href="site-types.html" class="active"><span class="icon fa-fort-awesome"></span></a></li>
 						<li><a href="chronology.html"><span class="icon fa-hourglass-start"></span></a></li>
-						<li><a href="references.html"><span class="icon fa-book"></span></a></li>		
+						<li><a href="references.html"><span class="icon fa-book"></span></a></li>
 					</ul>
 				</nav>
 
@@ -39,18 +39,11 @@
 
 									<div id="browsing">
 										<div>
-											<input type="submit" value="Incluir"><br><br>
-										</div>
-										<div>
-											<table style="width:100%">
-											  <tr>
-												<th>Tipo de sítio</th>
-												<th>Descrição</th>
-											  </tr>
-											  <tr>
-												<td></td>
-												<td></td>
-											  </tr>
+											<table style="width:100%" id='reg-sites'>
+												<tr>
+													<th>Tipo de sítio</th>
+													<th>Descrição</th>
+												</tr>
 											</table>
 										</div>
 									</div>
@@ -59,18 +52,18 @@
 										<div>
 											<div>
 												<label for="tipoSitio">Tipo de sítio</label>
-												<textarea name="tipoSitio" id="message" rows="2" placeholder="Tipo de sítio"></textarea>
+												<textarea name="tipoSitio" id="initials" rows="2" placeholder="Tipo de sítio"></textarea>
 											</div>
 
 											<div>
 												<label for="descricao">Descrição</label>
-												<textarea name="descricao" id="message" rows="2" placeholder="Descrição"></textarea>
+												<textarea name="descricao" id="description" rows="2" placeholder="Descrição"></textarea>
 											</div>
 										</div>
 										<div>
 											<br><br>
-											<input type="submit" value="Salvar">
-											<input type="submit" value="Cancelar">
+											<button id='create-site-type'>Salvar</button>
+											<button>Cancelar</button>
 										</div>
 									</div>
 								</div>
@@ -95,8 +88,41 @@
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(document).ready(function(){
+					$.ajax({
+						type: 'GET',
+						url: 'http://127.0.0.1:8000/api/funeral/site-types',
+						crossDomain: true,
+						dataType: 'json',
+						success: function(data) {
+							if(data.length > 0) {
+								$.each(data, function(index, value){
+									$('#reg-sites').append(`<tr><td>${value.initials}</td><td>${value.description}<td></tr>`);
+								});
+							}
+						},
+					});
 
+					$("#create-site-type").click(function(){
+						let new_site_type = {
+							"initials": $('#initials').val(),
+							"description": $('#description').val()
+						}
+
+						$.ajax({
+							type: 'POST',
+							url: 'http://0.0.0.0:8000/api/funeral/site-types',
+							crossDomain: true,
+							data: new_site_type,
+							dataType: 'json',
+							success: function(data) {
+								$('#reg-sites').append(`<tr><td>${new_site_type.initials}</td><td>${new_site_type.description}<td></tr>`);
+							},
+						});
+					});
+				});
+		</script>
 	</body>
 </html>
