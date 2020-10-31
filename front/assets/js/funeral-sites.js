@@ -1,10 +1,10 @@
-urlAPI = 'http://127.0.0.1:8000/api/funeral/funeral-sites'
+urlFuneralSytes= 'http://127.0.0.1:8000/api/funeral/funeral-sites'
 
 $(document).ready(function() {
     $.ajax
     ({
         type: 'GET',
-        url: urlAPI,
+        url: urlFuneralSytes,
         crossDomain: true,
         dataType: 'json',
         success: function(data) {
@@ -47,7 +47,7 @@ $(document).ready(function() {
         $.ajax
         ({
             type: 'POST',
-            url: urlAPI,
+            url: urlFuneralSytes,
             crossDomain: true,
             data: new_funeral_site,
             dataType: 'json',
@@ -66,7 +66,7 @@ $(document).ready(function() {
                     <td>${response.chronology}</td>
                     <td>${response.references}</td>
                 </tr>`);
-               $("#inserting").html(response);
+               //$("#inserting").html(response);
             },
             error: function(err) {
                 console.log(err)
