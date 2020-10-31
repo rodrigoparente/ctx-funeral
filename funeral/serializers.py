@@ -10,6 +10,12 @@ from .models import SiteImage
 
 
 class FunerarySiteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FunerarySite
+        fields = '__all__'
+
+
+class FunerarySiteListSerializer(serializers.ModelSerializer):
     site_type = serializers.SerializerMethodField()
 
     chronology = serializers.SerializerMethodField()
