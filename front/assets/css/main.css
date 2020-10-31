@@ -1613,6 +1613,23 @@
 
 		} 
 
+.main-table {
+	width: 100% !important;
+	text-align: justify;
+}
+
+.main-table td {
+	text-align: justify;
+}
+
 .btn-group {
-	padding-top: 20px;
+
+}
+
+.table-delete-btn {
+	width:10%;
+}
+
+.delete-btn {
+	padding: 100%;
 }

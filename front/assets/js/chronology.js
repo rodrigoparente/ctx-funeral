@@ -1,9 +1,21 @@
-//intocado
+
+urlChronologyAPI = 'http://127.0.0.1:8000/api/funeral/chronology'
+
+function deleteChronology(id){
+    $.ajax({
+        url: urlChronologyAPI + '/' + id,
+        type: 'DELETE',
+        success: function(result) {
+            alert("Componente Excluído")
+        }
+    })
+}
+
 
 $(document).ready(function() {
     $.ajax({
         type: 'GET',
-        url: 'http://127.0.0.1:8000/api/funeral/chronology',
+        url: urlChronologyAPI,
         crossDomain: true,
         dataType: 'json',
         success: function(data) {
@@ -13,8 +25,8 @@ $(document).ready(function() {
                     $('#chronology-table').append(
                         `<tr>
                             <td>${value.name}</td>
-                        </tr>`
-                        );
+                            <td><input type=submit value=Excluir class = "delete-btn" onclick=deleteChronology(${value.id})></td>
+                        </tr>`);
                 });
             }
         },
@@ -27,7 +39,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/api/funeral/chronology',
+            url: urlChronologyAPI,
             crossDomain: true,
             data: new_chronology,
             dataType: 'json',
@@ -35,7 +47,8 @@ $(document).ready(function() {
                 $('#chronology-table').append(
                 `<tr>
                     <td>${new_chronology.name}</td>
-                </tr>`);
+                </tr>`
+                );
             },
         });
     });

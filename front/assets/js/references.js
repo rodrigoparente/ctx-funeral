@@ -1,9 +1,21 @@
+urlReferencesAPI = 'http://127.0.0.1:8000/api/funeral/references'
+
+function deleteReference(id){
+    $.ajax({
+        url: urlReferencesAPI + '/' + id,
+        type: 'DELETE',
+        success: function(result) {
+            alert("Componente Excluído")
+        }
+    })
+}
+
 $(document).ready(function()
 {
     $.ajax
     ({
         type: 'GET',
-        url: 'http://127.0.0.1:8000/api/funeral/references',
+        url: urlReferencesAPI,
         crossDomain: true,
         dataType: 'json',
         success: function(data) 
@@ -12,7 +24,12 @@ $(document).ready(function()
             {
                 $.each(data, function(index, value) 
                 {
-                    $('#references-table').append(`<tr><td>${value.name}</td></tr>`)
+                    $('#references-table').append(
+                        `<tr>
+                            <td>${value.name}</td>
+                            <td><input type=submit class = "delete-btn" value=Excluir onclick=deleteReference(${value.id})></td>
+                        </tr>`)
+                    
                 });
             }
         },
@@ -28,7 +45,7 @@ $(document).ready(function()
         $.ajax
         ({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/api/funeral/references',
+            url: urlReferencesAPI,
             crossDomain: true,
             data: new_references,
             dataType: 'json',
