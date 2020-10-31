@@ -8,3 +8,6 @@ db.sqlite3
 
 ### code editor
 tox.ini
+
+### vscode
+.vscode

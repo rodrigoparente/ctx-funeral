@@ -8,95 +8,84 @@
 	</head>
 	<body>
 		<div class="page-wrap">
+		<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+					<li><a href="funeral-sites.html"><span class="icon fa-location-arrow"></span></a></li>
+					<li><a href="site-types.html" class="active"><span class="icon fa-fort-awesome"></span></a></li>
+					<li><a href="chronology.html"><span class="icon fa-hourglass-start"></span></a></li>
+					<li><a href="references.html"><span class="icon fa-book"></span></a></li>
+				</ul>
+			</nav>
 
-			<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
-						<li><a href="funeral-sites.html"><span class="icon fa-location-arrow"></span></a></li>
-						<li><a href="site-types.html" class="active"><span class="icon fa-fort-awesome"></span></a></li>
-						<li><a href="chronology.html"><span class="icon fa-hourglass-start"></span></a></li>
-						<li><a href="references.html"><span class="icon fa-book"></span></a></li>		
-					</ul>
-				</nav>
+		<!-- Main -->
+			<section id="main">
 
-			<!-- Main -->
-				<section id="main">
+				<!-- Header -->
+					<header id="header">
+						<div>Tipo de sítios funerais</div>
+					</header>
 
-					<!-- Header -->
-						<header id="header">
-							<div>Tipo de sítios funerais</div>
-						</header>
+				<!-- Section -->
+					<section>
+						<form action="#" method="post">
+							<div class="inner">
+								<header>
+									<h1>Tipo de sítios funerais</h1>
+								</header>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis in ipsum in volutpat.</p>
 
-					<!-- Section -->
-						<section>
-							<form action="#" method="post">
-								<div class="inner">
-									<header>
-										<h1>Tipo de sítios funerais</h1>
-									</header>
-									<p>Algum textozinho sobre tipo de sítios funerais.</p>
-
-									<div id="browsing">
-										<div>
-											<input type="submit" value="Incluir"><br><br>
-										</div>
-										<div>
-											<table style="width:100%">
-											  <tr>
+								<div id="browsing">
+									<div>
+										<table style="width:100%" id='reg-sites'>
+											<tr>
 												<th>Tipo de sítio</th>
 												<th>Descrição</th>
-											  </tr>
-											  <tr>
-												<td></td>
-												<td></td>
-											  </tr>
-											</table>
-										</div>
-									</div>
-
-									<div id="inserting">
-										<div>
-											<div>
-												<label for="tipoSitio">Tipo de sítio</label>
-												<textarea name="tipoSitio" id="message" rows="2" placeholder="Tipo de sítio"></textarea>
-											</div>
-
-											<div>
-												<label for="descricao">Descrição</label>
-												<textarea name="descricao" id="message" rows="2" placeholder="Descrição"></textarea>
-											</div>
-										</div>
-										<div>
-											<br><br>
-											<input type="submit" value="Salvar">
-											<input type="submit" value="Cancelar">
-										</div>
+											</tr>
+										</table>
 									</div>
 								</div>
-							</form>
-						</section>
 
-					<!-- Footer -->
-						<footer id="footer">
-							<div class="copyright">
-								ctx-funeral &copy;
-								<script>
-									var CurrentYear = new Date().getFullYear()
-									document.write(CurrentYear)
-								</script>
+								<div id="inserting">
+									<div>
+										<div>
+											<label for="tipoSitio">Tipo de sítio</label>
+											<textarea name="tipoSitio" id="initials" rows="2" placeholder="Tipo de sítio"></textarea>
+										</div>
+
+										<div>
+											<label for="descricao">Descrição</label>
+											<textarea name="descricao" id="description" rows="2" placeholder="Descrição"></textarea>
+										</div>
+									</div>
+									<div>
+										<br><br>
+										<button id='create-site-type'>Salvar</button>
+										<button>Cancelar</button>
+									</div>
+								</div>
 							</div>
-						</footer>
-				</section>
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+						</form>
+					</section>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="copyright">
+							ctx-funeral &copy;
+							<script>
+								var CurrentYear = new Date().getFullYear()
+								document.write(CurrentYear)
+							</script>
+						</div>
+					</footer>
+			</section>
+	</div>
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script type="text/javascript"src="assets/js/site-types.js"></script>
 	</body>
 </html>

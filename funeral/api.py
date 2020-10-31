@@ -9,6 +9,7 @@ from .models import Chronology
 from .models import Reference
 from .models import SiteImage
 from .serializers import FunerarySiteSerializer
+from .serializers import FunerarySiteListSerializer
 from .serializers import SiteTypeSerializer
 from .serializers import ChronologySerializer
 from .serializers import ReferenceSerializer
@@ -20,6 +21,11 @@ class FunerarySiteViewSet(viewsets.ModelViewSet):
     queryset = FunerarySite.objects.all()
     serializer_class = FunerarySiteSerializer
     filter_class = FunerarySiteFilterSet
+
+    def get_serializer_class(self):
+        if self.action in ['list']:
+            return FunerarySiteListSerializer
+        return super().get_serializer_class()
 
 
 class SiteTypeViewSet(viewsets.ModelViewSet):
