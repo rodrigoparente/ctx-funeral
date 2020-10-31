@@ -1304,7 +1304,7 @@
 		table th {
 			font-size: 0.9em;
 			font-weight: 700;
-			padding: 0 0.75em 0.75em 0.75em;
+			padding: 0.75em;
 			text-align: left;
 		}
 
@@ -1618,18 +1618,30 @@
 	text-align: justify;
 }
 
-.main-table td {
-	text-align: justify;
-}
-
-.btn-group {
-
-}
-
 .table-delete-btn {
 	width:10%;
 }
 
 .delete-btn {
-	padding: 100%;
+	
+}
+
+#inserting div {
+	margin-bottom:  1em;
+}
+
+.btn-group {
+	display: flex;
+	text-align: center;
+    align-items: center;
+    justify-content: center;
+	flex-direction: row;
+	padding-top: 1em;
+}
+
+.btn-group input{
+	width: 250px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 18px;
 }
