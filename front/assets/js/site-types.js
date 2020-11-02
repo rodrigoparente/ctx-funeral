@@ -1,6 +1,6 @@
 urlSiteTypesAPI = 'http://127.0.0.1:8000/api/funeral/site-types'
 
-function deleteSiteType(id){
+function deleteSiteType(id) {
     $.ajax({
         url: urlSiteTypesAPI + '/' + id,
         type: 'DELETE',
@@ -37,22 +37,40 @@ $(document).ready(function()
 
     $("#create-site-type").click(function() 
     {
-        let new_site_type = 
-        {
+        let siteTypesDict = {
+            "initials" : "Tipo de sítio",
+            "description" : "Descrição" 
+        }
+        
+        let newSiteType = {
             "initials": $('#initials').val(),
             "description": $('#description').val()
         }
+        
+        let keys = Object.keys(newSiteType)
+
+        for (var i = 0; i < keys.length; i++) {
+            if (newSiteType[keys[i]].trim() == "") {
+                alert("Preencha o campo '" + siteTypesDict[keys[i]] + "'.");
+                return;
+            }
+            else if (newSiteType[keys[i]].trim().length > 250) {
+                alert("Máximo de caracteres permitidos: 250.");
+                return;
+            }
+        }    
         
         $.ajax
         ({
             type: 'POST',
             url: urlSiteTypesAPI,
             crossDomain: true,
-            data: new_site_type,
+            data: newSiteType,
             dataType: 'json',
             success: function(data) {
-                $('#reg-sites').append(`<tr><td>${new_site_type.initials}</td><td>${new_site_type.description}<td></tr>`);
-            },
+                $('#reg-sites').append(`<tr><td>${newSiteType.initials}</td><td>${newSiteType.description}<td></tr>`);
+            }
+            
         });
     }); 
 

@@ -11,7 +11,6 @@ function deleteChronology(id){
     })
 }
 
-
 $(document).ready(function() {
     $.ajax({
         type: 'GET',
@@ -33,20 +32,38 @@ $(document).ready(function() {
     });
 
     $("#create-chronology").click(function() {
-        let new_chronology = {
+
+        let chronologyDict = {
+            "name" : "Descrição",
+        }
+
+        let newChronology = {
             "name": $('#message').val(),
         }
+        
+        let keys = Object.keys(newChronology)
+
+        for (var i = 0; i < keys.length; i++) {
+            if (newChronology[keys[i]].trim() == "") {
+                alert("Preencha o campo '" + chronologyDict[keys[i]] + "'.");
+                return;
+            }
+            else if (newChronology[keys[i]].trim().length > 250) {
+                alert("Máximo de caracteres permitidos: 250.");
+                return;
+            }
+        } 
 
         $.ajax({
             type: 'POST',
             url: urlChronologyAPI,
             crossDomain: true,
-            data: new_chronology,
+            data: newChronology,
             dataType: 'json',
             success: function(data) {
                 $('#chronology-table').append(
                 `<tr>
-                    <td>${new_chronology.name}</td>
+                    <td>${newChronology.name}</td>
                 </tr>`
                 );
             },

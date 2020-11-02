@@ -43,7 +43,21 @@ $(document).ready(function() {
 
     $("#create-funeral-site").click(function() {
 
-        let new_funeral_site = {
+
+        let funeralSiteDict = {
+            "name"              : "Nome do Sítio",
+            "burial_type"       : "Tipo / Número de enterramentos",
+            "burial"            : "Tipo de Inumação",
+            "uf"                : "Distrito",
+            "county"            : "Município",
+            "dating"            : "Datação",
+            "dated_material"    : "Material datado",
+            "site_type"         : "Tipo de sítio",
+            "chronology"        : "Cronologia:",
+            "references"        : "Referências"
+        }
+
+        let newFuneralSite = {
             "name"              : $('#name').val(),
             "burial_type"       : $('#message').val(),
             "burial"            : $('#inumacao').val(),
@@ -56,12 +70,29 @@ $(document).ready(function() {
             "references"        : $('#referencias').val()
         }
 
+        let keys = Object.keys(newFuneralSite)
+
+        for (var i = 0; i < keys.length; i++) {
+            if (newFuneralSite[keys[i]].trim() == "") {
+                alert("Preencha corretamente o campo '" + funeralSiteDict[keys[i]] + "'.");
+                return;
+            }
+            else if (newFuneralSite[keys[i]].trim().length > 250) {
+                alert("Máximo de caracteres permitidos: 250. ");
+                return;
+            }
+            else if (newFuneralSite[keys[i]].trim() == -1 && ( (funeralSiteDict[keys[i]] == "Tipo de sítio") || (funeralSiteDict[keys[i]] == "Cronologia") || (funeralSiteDict[keys[i]] == "Referências")) ) {
+                alert("Selecione o campo '" + funeralSiteDict[keys[i]] + "'.");
+                return;
+            }
+        } 
+
         $.ajax
         ({
             type: 'POST',
             url: urlFuneralSytes,
             crossDomain: true,
-            data: new_funeral_site,
+            data: newFuneralSite,
             dataType: 'json',
             success: function(response) {
 
@@ -78,7 +109,6 @@ $(document).ready(function() {
                     <td>${response.chronology}</td>
                     <td>${response.references}</td>
                 </tr>`);
-               //$("#inserting").html(response);
             },
             error: function(err) {
                 console.log(err)

@@ -37,20 +37,36 @@ $(document).ready(function()
 
     $("#create-references").click(function() 
     {
-        let new_references = 
-        {
+        let referencesDict = {
+            "name" : "Descrição",
+        }
+
+        let newReferences = {
             "name": $('#message').val(),
         }
         
+        let keys = Object.keys(newReferences)
+
+        for (var i = 0; i < keys.length; i++) {
+            if (newReferences[keys[i]].trim() == "" ) {
+                alert("Preencha corretamente o campo '" + referencesDict[keys[i]] + "'.");
+                return;
+            }
+            else if (newReferences[keys[i]].trim().length > 250) {
+                alert("Máximo de caracteres permitidos: 250. ");
+                return;
+            }
+        } 
+
         $.ajax
         ({
             type: 'POST',
             url: urlReferencesAPI,
             crossDomain: true,
-            data: new_references,
+            data: newReferences,
             dataType: 'json',
             success: function(data) {
-                $('#references-table').append(`<tr><td>${new_references.name}</td></tr>`);
+                $('#references-table').append(`<tr><td>${newReferences.name}</td></tr>`);
             },
         });
     }); 
