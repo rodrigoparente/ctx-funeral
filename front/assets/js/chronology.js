@@ -1,9 +1,20 @@
-//intocado
+
+urlChronologyAPI = 'http://127.0.0.1:8000/api/funeral/chronology'
+
+function deleteChronology(id){
+    $.ajax({
+        url: urlChronologyAPI + '/' + id,
+        type: 'DELETE',
+        success: function(result) {
+            alert("Componente Excluído")
+        }
+    })
+}
 
 $(document).ready(function() {
     $.ajax({
         type: 'GET',
-        url: 'http://127.0.0.1:8000/api/funeral/chronology',
+        url: urlChronologyAPI,
         crossDomain: true,
         dataType: 'json',
         success: function(data) {
@@ -13,29 +24,48 @@ $(document).ready(function() {
                     $('#chronology-table').append(
                         `<tr>
                             <td>${value.name}</td>
-                        </tr>`
-                        );
+                            <td><input type=submit value=Excluir class = "delete-btn" onclick=deleteChronology(${value.id})></td>
+                        </tr>`);
                 });
             }
         },
     });
 
     $("#create-chronology").click(function() {
-        let new_chronology = {
+
+        let chronologyDict = {
+            "name" : "Descrição",
+        }
+
+        let newChronology = {
             "name": $('#message').val(),
         }
+        
+        let keys = Object.keys(newChronology)
+
+        for (var i = 0; i < keys.length; i++) {
+            if (newChronology[keys[i]].trim() == "") {
+                alert("Preencha o campo '" + chronologyDict[keys[i]] + "'.");
+                return;
+            }
+            else if (newChronology[keys[i]].trim().length > 250) {
+                alert("Máximo de caracteres permitidos: 250.");
+                return;
+            }
+        } 
 
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/api/funeral/chronology',
+            url: urlChronologyAPI,
             crossDomain: true,
-            data: new_chronology,
+            data: newChronology,
             dataType: 'json',
             success: function(data) {
                 $('#chronology-table').append(
                 `<tr>
-                    <td>${new_chronology.name}</td>
-                </tr>`);
+                    <td>${newChronology.name}</td>
+                </tr>`
+                );
             },
         });
     });

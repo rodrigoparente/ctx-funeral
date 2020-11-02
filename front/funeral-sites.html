@@ -35,15 +35,12 @@
 									<header>
 										<h1>Sítios funerais</h1>
 									</header>
-									<p>Algum textozinho sobre sítios funerais.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis in ipsum in volutpat.</p>
 
 									<div id="browsing">
 										<div>
-											<input type="submit" value="Incluir"><br><br>
-										</div>
-										<div>
-											<table style="width:100%" id='reg-funeral-sites'>
-											  <tr>
+											<table class = "main-table" id='reg-funeral-sites'>
+											  <tr  class = "table-elements">
 												<th>Nome do sítio</th>
 												<th>Tipo / Número de enterramentos</th>
 												<th>Tipo de Inumação</th>
@@ -53,19 +50,8 @@
 												<th>Material Datado</th>
 												<th>Tipo de sítio</th>
 												<th>Cronologia</th>
-												<th>Referência</th>											
-											  </tr>
-											  <tr>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
+												<th>Referência</th>
+												<th class="table-delete-btn"></th>										
 											  </tr>
 											</table>
 										</div>
@@ -73,6 +59,7 @@
 
 									<div id="inserting">
 										<div>
+											<h3>Criar Sítio Funerário</h3>
 											<div>
 												<label for="name">Nome do sítio</label>
 												<input name="name" id="name" type="text" placeholder="Nome">
@@ -162,10 +149,8 @@
 												</select>												
 											</div>
 										</div>
-										<div>
-											<br><br>
-											<input type="submit" value="Salvar" id ="create-funeral-site">
-											<input type="submit" value="Cancelar">
+										<div class = "btn-group">
+											<input type="submit" value="Criar" id ="create-funeral-site">
 										</div>
 									</div>
 								</div>
